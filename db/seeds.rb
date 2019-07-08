@@ -11,9 +11,9 @@ User.destroy_all
 Channel.destroy_all
 
 puts "Creating channels..."
-Channel.create(name: "General")
-Channel.create(name: "Paris")
-Channel.create(name: "React")
+Channel.create(name: "general")
+Channel.create(name: "paris")
+Channel.create(name: "react")
 
 puts "Creating users and messages..."
 3.times do |num|
