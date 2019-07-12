@@ -1,1 +1,1 @@
-import './chat_app/index';
+import '../chat_app';

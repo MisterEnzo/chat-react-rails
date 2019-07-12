@@ -15,11 +15,9 @@ import rootReducer from './reducers/index';
 
 // render an instance of the component in the DOM
 
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <Provider store={createStore(rootReducer, {}, applyMiddleware(promiseMiddleware, logger))}>
-      <App />
-    </Provider>,
-    document.getElementById('chat-app')
-  )
-})
+ReactDOM.render(
+  <Provider store={createStore(rootReducer, {}, applyMiddleware(promiseMiddleware, logger))}>
+    <App />
+  </Provider>,
+  document.getElementById('chat-app')
+)

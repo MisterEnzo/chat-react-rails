@@ -1,4 +1,6 @@
 json.array! @messages do |message|
+  json.id message.id
+  json.author message.user.name
   json.content message.content
-  json.user message.user.name
+  json.created_at message.created_at
 end
