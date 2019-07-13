@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   # model attributes
   has_many :messages, dependent: :destroy
+  validates :name, presence: true
 end
