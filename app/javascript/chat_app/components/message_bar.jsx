@@ -12,13 +12,14 @@ class MessageBar extends Component {
     };
   }
 
-  onFormChange = (message) => {
+  handleChange = (message) => {
     this.setState({
       message: message
     })
   }
 
-  onFormSend = () => {
+  handleSubmit = (event) => {
+    event.preventDefault();
     this.props.postMessage(this.props.currentUser,
                            this.state.message,
                            this.props.selectedChannel);
@@ -30,9 +31,9 @@ class MessageBar extends Component {
   render() {
     return (
       <div>
-        <input type='text' value={this.state.message} onChange={(event) => this.onFormChange(event.target.value)} />
+        <input type='text' value={this.state.message} onChange={(event) => this.handleChange(event.target.value)} />
         <input type='submit' value='Submit'
-               onClick={() => this.onFormSend()}
+               onClick={() => this.handleSubmit()}
                className='btn'/>
       </div>
     );
