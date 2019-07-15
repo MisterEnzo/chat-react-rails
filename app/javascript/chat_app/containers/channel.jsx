@@ -43,8 +43,7 @@ class Channel extends Component {
 
 function mapStateToProps(state){
   return {
-    messages: state.messages,
-    selectedChannel: state.selectedChannel
+    messages: state.messages
   }
 }
 

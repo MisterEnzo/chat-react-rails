@@ -10,7 +10,6 @@ import { logger } from 'redux-logger';
 
 // internal modules
 import App from './components/app';
-import Channel from './components/channel';
 
 // reducer
 import rootReducer from './reducers/index';
@@ -21,8 +20,7 @@ import rootReducer from './reducers/index';
 ReactDOM.render(
   <Provider store={createStore(rootReducer, {}, applyMiddleware(promiseMiddleware, logger))}>
     <Router history={history}>
-      <Route path="/" exact component={App} />
-      <Route path="/channels/:channel" exact component={Channel} />
+      <Route path="/channels/:channel" component={App} />
     </Router>
   </Provider>,
   document.getElementById('chat-app')

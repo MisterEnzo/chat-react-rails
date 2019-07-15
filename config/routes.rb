@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   end
 
   resources :channels, only: [ :show ]
-  root to: 'pages#home'
+  root to: 'channels#show'
 end

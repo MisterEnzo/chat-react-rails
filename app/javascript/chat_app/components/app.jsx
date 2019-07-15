@@ -1,14 +1,12 @@
 import React from 'react';
-import ChannelList from '../containers/channel_list';
 import Channel from '../containers/channel';
-import MessageBar from '../components/message_bar';
+import MessageBar from './message_bar';
 
-const App = () => {
+const App = (props) => {
   return (
     <div className="app">
-      <ChannelList />
-      <Channel />
-      <MessageBar />
+      <Channel selectedChannel={props.match.params.channel} />
+      <MessageBar selectedChannel={props.match.params.channel} />
     </div>
   );
 };
