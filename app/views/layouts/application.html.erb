@@ -21,6 +21,6 @@
     <%= yield %>
     <%= yield :after_js %>
     <%= debug params %>
-    <%= debug current_user.name if current_user %>
+    <%= "Current user: #{current_user.name}" if current_user %>
   </body>
 </html>
