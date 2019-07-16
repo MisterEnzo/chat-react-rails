@@ -20,8 +20,7 @@ class MessageBar extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.postMessage(this.props.currentUser,
-                           this.state.message,
+    this.props.postMessage(this.state.message,
                            this.props.selectedChannel);
     this.setState({
       message: ''
@@ -33,7 +32,7 @@ class MessageBar extends Component {
       <div>
         <input type='text' value={this.state.message} onChange={(event) => this.handleChange(event.target.value)} />
         <input type='submit' value='Submit'
-               onClick={() => this.handleSubmit()}
+               onClick={(event) => this.handleSubmit(event)}
                className='btn'/>
       </div>
     );

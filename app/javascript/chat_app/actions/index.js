@@ -11,9 +11,9 @@ export function fetchMessages(channel) {
 }
 
 // the code for posting works, now  you need to complete the action
-export function postMessage(currentUser, message, channel) {
-  const body = {author: currentUser, content: message};
-  const url = `https://wagon-chat.herokuapp.com/${channel}/messages`;
+export function postMessage(message, channel) {
+  const body = {content: message};
+  const url = `/api/v1/channels/general/messages`;
   const promise = fetch(url, {
     method: 'POST',
     headers: {
