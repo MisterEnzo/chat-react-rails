@@ -1,7 +1,7 @@
 import * as types from './action_types';
 
 export function fetchMessages(channel) {
-  return fetch(`/api/v1/channels/${channel}/messages`)
+  return fetch(`/api/v1/channels/${channel}/messages`, {credentials: "same-origin"} )
   .then((response) => {
     return response.json();
   })
@@ -15,6 +15,7 @@ export function postMessage(message, channel) {
   const body = {content: message};
   const url = `/api/v1/channels/general/messages`;
   const promise = fetch(url, {
+    credentials: "same-origin",
     method: 'POST',
     headers: {
       'Accept': 'application/json',
