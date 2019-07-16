@@ -1,7 +1,7 @@
 import * as types from './action_types';
 
 export function fetchMessages(channel) {
-  return fetch(`/api/v1/channels/general/messages`)
+  return fetch(`/api/v1/channels/${channel}/messages`)
   .then((response) => {
     return response.json();
   })
