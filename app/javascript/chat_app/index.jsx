@@ -17,11 +17,13 @@ import rootReducer from './reducers/index';
 
 // render an instance of the component in the DOM
 
-ReactDOM.render(
-  <Provider store={createStore(rootReducer, {}, applyMiddleware(promiseMiddleware, logger))}>
-    <Router history={history}>
-      <Route path="/channels/:channel" component={App} />
-    </Router>
-  </Provider>,
-  document.getElementById('chat-app')
-)
+document.addEventListener('DOMContentLoaded',() => {
+  ReactDOM.render(
+    <Provider store={createStore(rootReducer, {}, applyMiddleware(promiseMiddleware, logger))}>
+      <Router history={history}>
+        <Route path="/channels/:channel" component={App} />
+      </Router>
+    </Provider>,
+    document.getElementById('chat-app')
+  )
+})
