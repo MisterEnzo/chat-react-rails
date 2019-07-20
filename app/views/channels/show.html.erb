@@ -4,7 +4,7 @@
 <% if !current_user %>
   <%= link_to "Sign Up", new_user_registration_path, class: "ui button" %>
 <% else %>
-  <div id="chat-app">Chat App</div>
+  <div id="chat-app" data-channels=<%= Channel.all.to_json %>>Chat App</div>
   <% content_for :after_js do %>
     <%= javascript_pack_tag "chat_app" %>
   <% end %>

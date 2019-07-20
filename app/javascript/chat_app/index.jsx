@@ -16,14 +16,16 @@ import rootReducer from './reducers/index';
 
 
 // render an instance of the component in the DOM
+const appContainer = document.getElementById('chat-app');
+const channels = JSON.parse(appContainer.dataset.channels).map(c => c.name);
 
 document.addEventListener('DOMContentLoaded',() => {
   ReactDOM.render(
-    <Provider store={createStore(rootReducer, {}, applyMiddleware(promiseMiddleware, logger))}>
+    <Provider store={createStore(rootReducer, {channels: channels}, applyMiddleware(promiseMiddleware, logger))}>
       <Router history={history}>
         <Route path="/channels/:channel" component={App} />
       </Router>
     </Provider>,
-    document.getElementById('chat-app')
-  )
+    appContainer
+  );
 })
