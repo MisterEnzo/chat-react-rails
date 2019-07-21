@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
-import { selectChannel } from '../actions/index';
 
 class ChannelList extends Component {
 
@@ -30,11 +27,4 @@ function mapStateToProps(state){
   }
 }
 
-function mapDispatchToProps(dispatch){
-  return bindActionCreators(
-    { selectChannel : selectChannel },
-    dispatch
-  )
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ChannelList);
+export default connect(mapStateToProps)(ChannelList);
