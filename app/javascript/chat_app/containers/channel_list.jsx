@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { selectChannel } from '../actions/index';
 
@@ -11,11 +12,12 @@ class ChannelList extends Component {
       <div>
         <h3>Channel List</h3>
         {this.props.channels.map((channel)=> {
-          return (<div className={(channel === this.props.selectedChannel) ? "selectedChannel" : ""}
-                       key={channel}
-                       onClick={() => this.props.selectChannel(channel)}
-                  >{channel}
-                  </div>)
+          return (<Link to={`/channels/${channel}`} key={channel} >
+                    <div className={(channel === this.props.selectedChannel) ? "selectedChannel" : ""} >
+                      {channel}
+                    </div>
+                  </Link>
+                )
         })}
       </div>
     )
@@ -24,8 +26,7 @@ class ChannelList extends Component {
 
 function mapStateToProps(state){
   return {
-    channels: state.channels,
-    selectedChannel: state.selectedChannel
+    channels: state.channels
   }
 }
 
