@@ -18,11 +18,30 @@ class Channel extends Component {
   }
 
   componentDidMount() {
-    this.interval = setInterval(this.fetch, 3000);
+    this.fetch();
+    console.log(App);
+    this.subscribeActionCable(this.props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.selectedChannel != nextProps.selectedChannel){
+      this.subscribeActionCable(nextProps);
+      console.log(App);
+    }
   }
 
   componentWillUnmount() {
-    clearInterval(this.interval)
+  }
+
+  subscribeActionCable = (props) => {
+    App[`channel_${props.selectedChannel}`] = App.cable.subscriptions.create(
+      { channel: 'ChannelsChannel', channel_name: props.selectedChannel},
+      {
+        received: (message) => {
+          console.log(message);
+        }
+      }
+    );
   }
 
   render() {
