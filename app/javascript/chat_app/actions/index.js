@@ -31,3 +31,7 @@ export function postMessage(message, channel) {
 export function selectChannel(channel) {
   return {type: types.SELECT_CHANNEL, channel: channel};
 }
+
+export function receiveCableMessage(message) {
+  return { type: types.RECEIVE_CABLE_MESSAGE, message: message }
+}

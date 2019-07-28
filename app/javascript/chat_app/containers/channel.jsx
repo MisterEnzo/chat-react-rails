@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { fetchMessages } from '../actions/index';
+import { fetchMessages, receiveCableMessage } from '../actions/index';
 
 import Message from '../components/message';
 
@@ -34,13 +34,19 @@ class Channel extends Component {
   }
 
   subscribeActionCable = (props) => {
+    console.log(props);
     App[`channel_${props.selectedChannel}`] = App.cable.subscriptions.create(
       { channel: 'ChannelsChannel', channel_name: props.selectedChannel},
       {
         received: (message) => {
+          // this.receiveCableMessage(message);
           console.log(message);
+          props.receiveCableMessage(message);
         }
-      }
+      },
+      // receiveCableMessage = (message) => {
+      //   props.receiveCableMessage(message);
+      // }
     );
   }
 
@@ -68,7 +74,10 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
   return bindActionCreators(
-    { fetchMessages: fetchMessages },
+    {
+      fetchMessages: fetchMessages,
+      receiveCableMessage: receiveCableMessage
+     },
     dispatch
   )
 }

@@ -7,6 +7,11 @@ export default function messagesReducer(state = initialState.messages, action){
       return action.messages;
     case types.POST_MESSAGE:
       return state;
+    case types.RECEIVE_CABLE_MESSAGE:
+      return [
+        ...state,
+        Object.assign({}, action.message)
+      ];
     default:
       return state;
   }
