@@ -12,21 +12,20 @@ class Channel extends Component {
     this.fetch = this.fetch.bind(this);
   }
 
-  fetch() {
-    let channel = this.props.selectedChannel;
+  fetch(channel) {
     this.props.fetchMessages(channel);
   }
 
   componentDidMount() {
-    this.fetch();
+    this.fetch(this.props.selectedChannel);
     console.log(App);
     this.subscribeActionCable(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.selectedChannel != nextProps.selectedChannel){
+      this.fetch(nextProps.selectedChannel);
       this.subscribeActionCable(nextProps);
-      console.log(App);
     }
   }
 
