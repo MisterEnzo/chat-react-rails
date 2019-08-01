@@ -18,13 +18,15 @@ class Channel extends Component {
 
   componentDidMount() {
     this.fetch(this.props.selectedChannel);
-    console.log(App);
     this.subscribeActionCable(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.selectedChannel != nextProps.selectedChannel){
       this.fetch(nextProps.selectedChannel);
+      // unsubscribe from current action cable connection
+      this.unsubscribeActionCable();
+      // subscribe to new selected channel
       this.subscribeActionCable(nextProps);
     }
   }
@@ -33,20 +35,21 @@ class Channel extends Component {
   }
 
   subscribeActionCable = (props) => {
-    console.log(props);
+    // action cable connection is initialized
     App[`channel_${props.selectedChannel}`] = App.cable.subscriptions.create(
       { channel: 'ChannelsChannel', channel_name: props.selectedChannel},
       {
         received: (message) => {
-          // this.receiveCableMessage(message);
-          console.log(message);
+          // push the new message to redux state
           props.receiveCableMessage(message);
         }
-      },
-      // receiveCableMessage = (message) => {
-      //   props.receiveCableMessage(message);
-      // }
+      }
     );
+  }
+
+  unsubscribeActionCable = () => {
+    var subscription = App.cable.subscriptions.subscriptions[1];
+    App.cable.subscriptions.remove(subscription);
   }
 
   render() {
