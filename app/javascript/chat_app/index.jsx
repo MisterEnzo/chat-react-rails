@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
-import { createHistory as history } from 'history';
+import { createBrowserHistory as history } from 'history';
 
 import promiseMiddleware from 'redux-promise';
 import { logger } from 'redux-logger';
