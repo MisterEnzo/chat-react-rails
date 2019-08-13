@@ -13,7 +13,7 @@ export function fetchMessages(channel) {
 // the code for posting works, now  you need to complete the action
 export function postMessage(message, channel) {
   const body = {content: message};
-  const url = `/api/v1/channels/general/messages`;
+  const url = `/api/v1/channels/${channel}/messages`;
   const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
   const promise = fetch(url, {
     credentials: "same-origin",
