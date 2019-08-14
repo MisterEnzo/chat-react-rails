@@ -96,6 +96,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Action Cable web socket server url configuration
-  config.web_socket_server_url = "wss://salty-peak-67453.herokuapp.com/cable" 
+  config.web_socket_server_url = "wss://salty-peak-67453.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://salty-peak-67453.herokuapp.com', 'http://salty-peak-67453.herokuapp.com']
+
 
 end
