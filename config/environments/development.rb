@@ -60,4 +60,8 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # Action Cable development env url. This is actually the default lol, so no need for this
+  config.action_cable.url = "ws://localhost:3000/cable"
+
 end
