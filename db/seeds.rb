@@ -17,8 +17,8 @@ Channel.create(name: "react")
 
 puts "Creating users and messages..."
 3.times do |num|
-  User.create(name: "User#{num + 1}", email: "User#{num}@test.com", password: 123123)
-  User.find_by(name: "User#{num + 1}").messages.create(content: "Hello world!", channel_id: 1)
+  User.create(name: "User#{num}", email: "User#{num}@test.com", password: 123123)
+  User.find_by(name: "User#{num}").messages.create(content: "Hello world!", channel_id: num)
 end
 
 puts "done seeding."
