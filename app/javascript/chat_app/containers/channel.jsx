@@ -53,6 +53,11 @@ class Channel extends Component {
   }
 
   render() {
+    if (!this.props.selectedChannel) {
+      return (
+        <div>Loading...</div>
+      )
+    }
     return(
       <div>
         <h1>Channel: {this.props.selectedChannel}</h1>

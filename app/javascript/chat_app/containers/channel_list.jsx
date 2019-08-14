@@ -5,6 +5,11 @@ import { Link } from 'react-router-dom';
 class ChannelList extends Component {
 
   render() {
+    if (!this.props.channels) {
+      return (
+        <div>Loading...</div>
+      )
+    }
     return(
       <div>
         <h3>Channel List</h3>
