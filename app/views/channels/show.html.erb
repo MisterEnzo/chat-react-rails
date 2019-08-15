@@ -1,8 +1,10 @@
-<h1>Welcome to <%= @channel.name %></h1>
-
-<h2>Join the fun! Chat with the World!</h2>
 <% if !current_user %>
-  <%= link_to "Sign Up", new_user_registration_path, class: "ui button" %>
+  <div class="ui text container banner">
+    <h1 class="header">Welcome to Chatterer!</h1>
+    <h3>Join the fun! Chat with the World!</h3>
+    <%= link_to "Sign Up", new_user_registration_path, class: "ui primary button" %>
+    <%= link_to "Login", new_user_session_path, class: "ui teal button" %>
+  </div>
 <% else %>
   <div id="chat-app" data-channels=<%= Channel.all.to_json %>>Chat App</div>
   <% content_for :after_js do %>
