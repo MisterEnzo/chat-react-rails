@@ -7,12 +7,11 @@ const App = (props) => {
   return (
     <div className="app ui vertical stripe segment">
       <div className="ui stackable grid container">
-        <div className="two wide column">
+        <div className="four wide column">
           <ChannelList selectedChannel={props.match.params.channel} />
         </div>
-        <div className="twelve wide column">
+        <div className="ten wide column">
           <Channel selectedChannel={props.match.params.channel} />
-          <MessageBar selectedChannel={props.match.params.channel} />
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { fetchMessages, receiveCableMessage } from '../actions/index';
 
 import Message from '../components/message';
+import MessageBar from '../components/message_bar';
 
 class Channel extends Component {
   constructor(props){
@@ -59,15 +60,17 @@ class Channel extends Component {
       )
     }
     return(
-      <div>
-        <h1>Channel: {this.props.selectedChannel}</h1>
-        {this.props.messages.map(({ author, content, created_at }) => {
-          return(
-            <Message author={author} content={content} timeStamp={created_at}
-                     key={created_at} />
-          )
-        })}
-
+      <div className="channel">
+        <h1 className="ui header">{this.props.selectedChannel}</h1>
+        <div className="messages">
+          {this.props.messages.map(({ author, content, created_at }) => {
+            return(
+              <Message author={author} content={content} timeStamp={created_at}
+                       key={created_at} />
+            )
+          })}
+        </div>
+        <MessageBar selectedChannel={this.props.selectedChannel} />
       </div>
     )
   }

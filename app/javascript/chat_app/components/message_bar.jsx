@@ -29,8 +29,8 @@ class MessageBar extends Component {
 
   render() {
     return (
-      <div>
-        <input type='text' value={this.state.message} onChange={(event) => this.handleChange(event.target.value)} />
+      <div className="message-bar">
+        <textarea type='text' value={this.state.message} onChange={(event) => this.handleChange(event.target.value)} />
         <input type='submit' value='Submit'
                onClick={(event) => this.handleSubmit(event)}
                className='btn'/>

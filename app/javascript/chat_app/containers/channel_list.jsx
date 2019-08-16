@@ -12,15 +12,17 @@ class ChannelList extends Component {
     }
     return(
       <div>
-        <h3>Channel List</h3>
-        {this.props.channels.map((channel)=> {
-          return (<Link to={`/channels/${channel}`} key={channel} >
-                    <div className={(channel === this.props.selectedChannel) ? "selectedChannel" : ""} >
-                      {channel}
-                    </div>
-                  </Link>
-                )
-        })}
+        <h1 className="ui header">Channels</h1>
+        <div className="ui vertical menu">
+          {this.props.channels.map((channel)=> {
+            return (<Link to={`/channels/${channel}`} key={channel} >
+                      <div className={(channel === this.props.selectedChannel) ? "selectedChannel active item" : "item"} >
+                        {channel}
+                      </div>
+                    </Link>
+                  )
+          })}
+        </div>
       </div>
     )
   }
