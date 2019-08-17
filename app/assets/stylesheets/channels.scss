@@ -10,7 +10,23 @@
 .button {
   width: 10em;
 }
-
+.message-div {
+  .message {
+    margin: 0 0;
+    .user-name {
+      font-weight: bold;
+    };
+    .message-content {
+      ;
+    }
+  };
+  .timestamp {
+    margin-bottom: .33em;
+    font-style: italic;
+    color: gray;
+    font-size: .75em;
+  };
+}
 .channel {
   height: 75vh;
   margin: auto;

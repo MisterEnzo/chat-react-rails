@@ -9,7 +9,7 @@ class Message < ApplicationRecord
       id: id,
       author: self.user.name,
       content: content,
-      created_at: created_at,
+      created_at: time_ago_in_words(`#{created_at}`),
       channel: self.channel.name
     }
   end

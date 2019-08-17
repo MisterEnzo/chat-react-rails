@@ -2,9 +2,9 @@ import React from 'react';
 
 const Message = (props) => {
   return(
-    <div>
-      <p>{props.author}: {props.content}</p>
-      <p>Posted at: {props.timeStamp}</p>
+    <div className="message-div">
+      <p className="message"><span className="user-name">{props.author}:</span> <span className="message-content">{props.content}</span></p>
+      <p className="timestamp">{props.timeStamp} ago</p>
     </div>
   );
 };
