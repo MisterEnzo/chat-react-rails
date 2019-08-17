@@ -27,13 +27,29 @@ class MessageBar extends Component {
     });
   }
 
+  onEnterPress = (event) => {
+    if (event.keyCode == 13 && event.shiftKey == false) {
+      event.preventDefault();
+      document.getElementById("submit-button").click();
+    }
+  }
+
   render() {
     return (
       <div className="message-bar">
-        <textarea type='text' value={this.state.message} onChange={(event) => this.handleChange(event.target.value)} />
-        <input type='submit' value='Submit'
-               onClick={(event) => this.handleSubmit(event)}
-               className='btn'/>
+        <form onSubmit={(event)=>this.handleSubmit(event)}>
+          <div className="text-area">
+            <textarea type='text' value={this.state.message}
+              onChange={(event) => this.handleChange(event.target.value)}
+              onKeyDown={(event) => this.onEnterPress(event)}
+            />
+          </div>
+          <div className="submit-button">
+            <input type='submit' value='Send'
+                   className='ui button primary'
+                   id="submit-button" />
+          </div>
+         </form>
       </div>
     );
   }

@@ -21,16 +21,28 @@
     height: 87%;
     overflow: scroll;
     padding: 20px;
-  };
+    };
   .message-bar {
-    border: 1px solid rgba(34,36,38,.15);
-    border-radius: .28571429rem;
     height: 13%;
-    padding: 0 5px 5px;
     width: 100%;
+    .text-area {
+      height: 100%;
+      width: 80%;
+      float: left;
+    }
     textarea {
+      border: 1px solid rgba(34,36,38,.15);
+      border-radius: .28571429rem;
       height: 100%;
       width: 100%;
+    };
+  };
+  .submit-button {
+    width:20%;
+    display: inline !important;
+    input {
+      width: 20%;
+      margin: 0 0;
     }
   }
 }
