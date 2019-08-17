@@ -32,7 +32,13 @@ class Channel extends Component {
     }
   }
 
-  componentWillUnmount() {
+  componentDidUpdate() {
+    this.scrollBottom();
+  }
+
+  scrollBottom = () => {
+    let messages = document.querySelector(".messages");
+    messages.scrollTop = messages.scrollHeight;
   }
 
   subscribeActionCable = (props) => {
