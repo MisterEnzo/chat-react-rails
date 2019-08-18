@@ -1,8 +1,10 @@
 
 <div class="ui container">
   <h1>Log in</h1>
-  <div class="ui form">
+  <div class="ui form error">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
     <div class="field">
       <%= f.label :email %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

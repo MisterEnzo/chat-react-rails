@@ -14,6 +14,10 @@ puts "Creating channels..."
 Channel.create(name: "general")
 Channel.create(name: "paris")
 Channel.create(name: "react")
+Channel.create(name: "tokyo")
+Channel.create(name: "manila")
+Channel.create(name: "new york")
+Channel.create(name: "nowhere")
 
 puts "Creating users and messages..."
 3.times do |num|
