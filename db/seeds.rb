@@ -16,13 +16,13 @@ Channel.create(name: "paris")
 Channel.create(name: "react")
 Channel.create(name: "tokyo")
 Channel.create(name: "manila")
-Channel.create(name: "new york")
+Channel.create(name: "newyork")
 Channel.create(name: "nowhere")
 
 puts "Creating users and messages..."
-3.times do |num|
-  User.create(name: "User#{num}", email: "User#{num}@test.com", password: 123123)
-  User.find_by(name: "User#{num}").messages.create(content: "Hello world!", channel_id: num)
+7.times do |num|
+  User.create(name: Faker::Name.name, email: Faker::Internet.email, password: 123123)
+  User.find_by(id: num + 1).messages.create(content: "Hello world!", channel_id: num)
 end
 
 puts "done seeding."
