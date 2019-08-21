@@ -3,8 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
-import { createBrowserHistory as history } from 'history';
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
 
 import promiseMiddleware from 'redux-promise';
 import { logger } from 'redux-logger';
@@ -23,10 +22,11 @@ const channels = JSON.parse(appContainer.dataset.channels).map(c => c.name);
 document.addEventListener('DOMContentLoaded',() => {
   ReactDOM.render(
     <Provider store={createStore(rootReducer, {channels: channels}, applyMiddleware(promiseMiddleware, logger))}>
-      <Router history={history}>
+      <BrowserRouter>
         <Route path="/channels/:channel" component={App} />
-      </Router>
+      </BrowserRouter>
     </Provider>,
     appContainer
   );
+  console.log("app rendered");
 })
